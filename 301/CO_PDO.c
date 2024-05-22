@@ -700,8 +700,9 @@ CO_ReturnError_t CO_RPDO_init(CO_RPDO_t *RPDO,
     }
 
     /* If default CAN-ID is stored in OD (without Node-ID), add Node-ID */
-    if (CAN_ID != 0 && CAN_ID == (preDefinedCanId & 0xFF80)) {
-        CAN_ID = preDefinedCanId;
+//    if (CAN_ID != 0 && CAN_ID == (preDefinedCanId & 0xFF80)) 
+{
+        CAN_ID = COB_ID + 10; //preDefinedCanId;
     }
 
     ret = CO_CANrxBufferInit(
@@ -1164,8 +1165,9 @@ CO_ReturnError_t CO_TPDO_init(CO_TPDO_t *TPDO,
     }
 
     /* If default CAN-ID is stored in OD (without Node-ID), add Node-ID */
-    if (CAN_ID != 0 && CAN_ID == (preDefinedCanId & 0xFF80)) {
-        CAN_ID = preDefinedCanId;
+//    if (CAN_ID != 0 && CAN_ID == (preDefinedCanId & 0xFF80)) 
+{
+        CAN_ID = COB_ID + 10; //CAN_ID = preDefinedCanId;
     }
 
     TPDO->CANtxBuff = CO_CANtxBufferInit(
